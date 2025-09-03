@@ -1,0 +1,15 @@
+.hero-gradient {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.checklist-item::before {
+  content: "✓";
+  color: #4CAF50;
+  font-weight: bold;
+  margin-right: 10px;
+}

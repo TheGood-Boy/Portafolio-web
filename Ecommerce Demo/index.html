@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMarket Chile - Tienda Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>EcoMarket Chile</h1>
+  <p>Productos ecológicos y sustentables</p>
+</header>
+
+<nav>
+  <a href="#productos">Productos</a>
+  <a href="#pago">Cómo Comprar</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<main>
+  <section id="productos">
+    <h2>🌱 Productos Destacados</h2>
+    <div class="productos">
+      <div class="item" data-nombre="Bolsa Reutilizable" data-precio="4990">
+        <img src="img/bolsas-reutilizables.png" alt="Bolsa ecológica">
+        <h3>Bolsa Reutilizable</h3>
+        <p>$4.990</p>
+        <button class="btn add-to-cart">Agregar al carrito</button>
+      </div>
+      <div class="item" data-nombre="Botella de Acero Inoxidable" data-precio="9990">
+        <img src="img/Botella.png" alt="Botella de acero">
+        <h3>Botella de Acero Inoxidable</h3>
+        <p>$9.990</p>
+        <button class="btn add-to-cart">Agregar al carrito</button>
+      </div>
+      <div class="item" data-nombre="Pack de Jabón Natural" data-precio="6990">
+        <img src="img/jabon.png" alt="Jabón artesanal">
+        <h3>Pack de Jabón Natural</h3>
+        <p>$6.990</p>
+        <button class="btn add-to-cart">Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="pago">
+    <h2>💳 Cómo Comprar</h2>
+    <p>Agrega tus productos al carrito y luego finaliza tu compra de manera segura.</p>
+  </section>
+
+  <section id="contacto">
+    <h2>📞 Contáctanos</h2>
+    <p>Email: contacto@ecomarket.cl</p>
+    <p>Teléfono: +56 9 2222 2222</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 EcoMarket Chile - Todos los derechos reservados</p>
+</footer>
+
+<!-- Botón flotante del carrito -->
+<button id="cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
+
+<!-- Modal del carrito -->
+<div id="cart-modal" class="cart-modal">
+  <div class="cart-content">
+    <span class="close-btn">&times;</span>
+    <h2>🛒 Tu Carrito</h2>
+    <ul id="cart-list"></ul>
+    <p><strong>Total: $<span id="cart-total">0</span></strong></p>
+    <button class="btn" id="checkout-btn">Finalizar Compra</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

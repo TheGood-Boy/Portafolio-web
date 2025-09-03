@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asesorías Legales | Profesional y Confiable</title>
+
+    <!-- Carga de Tailwind CSS a través de CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Carga de FullCalendar a través de CDN -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+    <!-- Carga de Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Enlace al CSS externo -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="text-gray-800">
+
+    <!-- Aquí va todo tu contenido HTML (header, main, footer, modal) sin cambios -->
+
+    <!-- Sección de Cabecera (Hero) -->
+    <header class="hero-bg text-white py-20 rounded-b-[4rem] md:rounded-b-[8rem] shadow-xl">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                Asesorías Legales Integrales
+            </h1>
+            <p class="mt-4 text-lg md:text-xl font-light opacity-80">
+                Tu socio confiable en cada paso legal.
+            </p>
+            <button class="mt-8 px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full shadow-lg transition-transform transform hover:scale-105" onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });">
+                Agenda tu Consulta
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <main class="container mx-auto px-6 py-16">
+        <section class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Ofrecemos una amplia gama de soluciones legales adaptadas a tus necesidades.
+            </p>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjetas de servicio -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <i class="fa-solid fa-scale-balanced text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Derecho Civil</h3>
+                    <p class="text-gray-600">Resolución de conflictos, contratos, herencias y más.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <i class="fa-solid fa-handshake-simple text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Derecho Laboral</h3>
+                    <p class="text-gray-600">Asesoría para empleadores y trabajadores.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <i class="fa-solid fa-building-columns text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Derecho Comercial</h3>
+                    <p class="text-gray-600">Creación de empresas, fusiones y contratos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Calendario de Citas -->
+        <section id="appointment" class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl">
+            <h2 class="text-3xl font-bold text-center mb-8">Agenda tu Consulta</h2>
+            <div class="flex flex-col md:flex-row md:space-x-12">
+                <!-- Contenedor del Calendario -->
+                <div id="calendar" class="w-full md:w-1/2"></div>
+                
+                <!-- Detalles de la Cita y Pago -->
+                <div class="w-full md:w-1/2 mt-8 md:mt-0 p-6 bg-gray-50 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Detalles de la Cita</h3>
+                    <div id="appointment-details" class="text-lg text-gray-700">
+                        <p id="selected-date" class="mb-2"><i class="fa-solid fa-calendar-days text-blue-500 mr-2"></i> <span class="font-medium">Fecha:</span> No seleccionada</p>
+                        <p id="selected-time" class="mb-2"><i class="fa-solid fa-clock text-blue-500 mr-2"></i> <span class="font-medium">Hora:</span> No seleccionada</p>
+                    </div>
+
+                    <!-- Horarios Disponibles -->
+                    <div id="time-slots" class="mt-6 flex flex-wrap gap-2 justify-center">
+                        <!-- Los botones de horarios se generarán con JavaScript -->
+                    </div>
+
+                    <p class="text-center text-sm text-gray-500 mt-4">Costo de la consulta: $30.000 CLP</p>
+                    <button id="pay-button" class="w-full mt-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl transition-colors duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Proceder al Pago
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Pago (Simulación de WebPay) -->
+    <div id="payment-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full text-center">
+            <i class="fa-brands fa-cc-visa text-5xl text-blue-600 mb-4"></i>
+            <i class="fa-brands fa-cc-mastercard text-5xl text-blue-600 ml-4 mb-4"></i>
+            <h3 class="text-2xl font-bold mb-4">Simulación de WebPay</h3>
+            <p class="text-gray-700">
+                Esta es una simulación del proceso de pago. En una implementación real, serías redirigido a la pasarela de pago de Transbank.
+            </p>
+            <p class="font-semibold text-lg mt-4">Monto: $30.000 CLP</p>
+            <button id="close-modal" class="mt-6 px-6 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer class="bg-gray-800 text-white py-12 mt-16 rounded-t-[4rem] md:rounded-t-[8rem] shadow-xl">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-lg font-semibold">Asesorías Legales</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fa-brands fa-square-x-twitter text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fa-brands fa-square-instagram text-2xl"></i></a>
+                </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-8">&copy; 2024 Asesorías Legales. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Enlace al JS externo -->
+    <script src="scripts.js"></script>
+</body>
+</html>
